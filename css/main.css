@@ -1,0 +1,560 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap");
+
+:root {
+  --black: #272d38;
+  --red: #ed176f;
+  --coral: #f7817f;
+  /* 渐变色 */
+  --gradient: linear-gradient(90deg, var(--red), var(--coral));
+}
+
+* {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+  /* box-sizing:border-box属性，padding和border的值就不会影响元素的宽高，
+  相当于把padding和border的值都算在content里， */
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  /* 文本首字母大写 */
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+
+/* ::selection用于高亮的元素 这里将全局所有的选中情况进行统一样式设置 */
+*::selection {
+  background-color: var(--red);
+  color: #fff;
+}
+
+html {
+  /* 方便进行rem和px的单位换算 */
+  font-size: 62.5%;
+  /* 裁剪页面左右溢出的内容 */
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  /* 滚动窗口区域距离顶部的padding 用户固定导航栏 */
+  scroll-padding-top: 4rem;
+  height: 2000px;
+}
+
+body {
+  height: 300rem;
+}
+
+section {
+  padding: 3rem 9%;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 3rem;
+  margin-top: 1rem;
+  border-radius: 5rem;
+  background: var(--gradient);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.7rem;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+#menu-bar {
+  font-size: 3rem;
+  color: #fff;
+  /* 设置鼠标的形状为手 */
+  cursor: pointer;
+  display: none;
+}
+
+.heading {
+  text-align: center;
+  color: transparent;
+  background: var(--gradient);
+  /* 文本透明和背景裁剪为文本一起使用 可以让背景色只体现在文本中 */
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 5rem;
+  text-transform: uppercase;
+  padding: 1rem;
+}
+
+/* header section style starts */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--black);
+  padding: 2rem 9%;
+  z-index: 1000;
+  border-bottom: 0.1rem solid #fff3;
+  display: flex;
+  /* 垂直居中 */
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .logo {
+  font-weight: bolder;
+  color: #fff;
+  font-size: 2.5rem;
+}
+
+header .navbar a {
+  font-size: 2rem;
+  margin-left: 2.5rem;
+  color: #fff;
+}
+
+header .navbar a:hover {
+  color: var(--red);
+}
+
+/* header section style ends */
+
+/* home section starts */
+.home {
+  background: url(../images/home-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  text-align: center;
+}
+.home .content {
+  padding-top: 5rem;
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+.home .content p {
+  font-size: 1.7rem;
+  color: #eee;
+  padding: 1rem 0;
+}
+
+.home .content h3 {
+  font-size: 6.5rem;
+  color: #fff;
+}
+
+.home .swiper {
+  width: 100%;
+  padding: 5rem 0;
+}
+
+.home .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 30rem;
+  height: 50rem;
+}
+
+.home .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/* home section ends */
+
+/* features section style starts */
+.features .box-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 规定灵活的项目在必要的时候拆行或拆列。 */
+  flex-wrap: wrap;
+}
+
+.features .box-container .box {
+  margin: 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  background: rgba(237, 23, 111, 0.05);
+  padding: 1rem;
+  /*使用前提是亲爸爸元素是 display: flex; */
+  /* flex 三值语法:（剩余空间多余时的分配规则，剩余空间不足时的分配规则，基础尺寸） */
+  flex: 1 1 30rem;
+  cursor: pointer;
+}
+
+.features .box-container .box i {
+  font-size: 5rem;
+  color: var(--red);
+  padding: 1rem;
+}
+.features .box-container .box h3 {
+  font-size: 2.4rem;
+  color: var(--black);
+}
+.features .box-container .box p {
+  font-size: 1.5rem;
+  color: #666;
+  padding: 1rem;
+}
+
+.features .box-container .box:hover {
+  background: var(--gradient);
+}
+
+/* 选择 .features .box-container .box:hover的所有子元素 */
+.features .box-container .box:hover > * {
+  color: #fff;
+}
+/* features section style ends */
+
+/* about section style starts */
+.about .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.about .row .img {
+  flex: 1 1 40rem;
+}
+
+.about .row .img img {
+  width: 100%;
+}
+.about .row .content {
+  flex: 1 1 40rem;
+}
+
+.about .row .content h3 {
+  color: var(--black);
+  font-size: 3.5rem;
+}
+
+.about .row .content p {
+  color: #666;
+  font-size: 1.7rem;
+  padding: 1rem 0;
+}
+
+.about .row .content .buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+.about .row .content .buttons a:last-child {
+  margin-left: 2rem;
+}
+.about .row .content .buttons a:hover {
+  opacity: 0.7;
+}
+/* about section style ends */
+
+/* usage section style starts */
+.usage .row {
+  display: flex;
+  align-items: center;
+  flex-wrap: warp;
+}
+
+.usage .row .divider {
+  padding: 0 1rem;
+}
+
+.usage .row .box-container .box {
+  padding: 1rem 0;
+}
+
+.usage .row .box-container .box i {
+  font-size: 4.5rem;
+  color: var(--red);
+  padding: 1rem 0;
+}
+.usage .row .box-container .box h3 {
+  font-size: 2.5rem;
+  color: var(--black);
+}
+.usage .row .box-container .box p {
+  font-size: 1.5rem;
+  color: #666;
+  padding: 1rem;
+}
+
+.usage .row .box-container:first-child {
+  text-align: right;
+}
+
+/* usage section style ends */
+
+/* review section style starts */
+.review .box-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.review .box-container .box {
+  text-align: center;
+  padding: 2rem;
+  margin: 2rem;
+  flex: 1 1 30rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.review .box-container .box img {
+  height: 13rem;
+  width: 13rem;
+  padding: 1rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review .box-container .box h3 {
+  font-size: 2.5rem;
+  color: var(--black);
+}
+
+.review .box-container .box p {
+  font-size: 1.4rem;
+  color: #666;
+  padding: 1rem 0;
+}
+
+.review .box-container .box .stars i {
+  font-size: 2rem;
+  color: var(--red);
+  padding: 0.5rem 0.5rem;
+}
+/* review section style ends */
+
+/* pricing section style starts */
+.pricing .box-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pricing .box-container .box {
+  text-align: center;
+  padding: 2rem 0;
+  margin: 2rem;
+  flex: 1 1 30rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.pricing .box-container .box .price {
+  font-size: 5rem;
+  color: var(--black);
+  font-weight: bolder;
+}
+
+.pricing .box-container .box .price span {
+  font-size: 2rem;
+  color: var(--black);
+  font-weight: normal;
+}
+
+.pricing .box-container .box h3 {
+  font-size: 3rem;
+  color: #fff;
+  background: var(--gradient);
+  padding: 1.5rem 0;
+}
+
+.pricing .box-container .box ul {
+  list-style: none;
+  padding: 2rem 0;
+  border-bottom: 0.1rem solid var(--red);
+}
+
+.pricing .box-container .box ul li {
+  font-size: 1.7rem;
+  padding: 0.7rem 0;
+  color: #666;
+}
+
+.pricing .box-container .box .btn {
+  margin-top: 2rem;
+}
+/* pricing section style ends */
+
+/* contact section style starts */
+.contact {
+  background: linear-gradient(#fff 50%, var(--black) 50.1%);
+}
+
+.contact form {
+  padding: 2rem;
+  background: #fff;
+  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.1);
+}
+
+.contact form .inputBox {
+  position: relative;
+}
+
+.contact form .inputBox input,
+.contact form .inputBox textarea {
+  width: 100%;
+  margin: 1.5rem 0;
+  padding: 1rem 0;
+  border-bottom: 0.2rem solid rgba(0, 0, 0, 0.3);
+  font-size: 1.7rem;
+  text-transform: none;
+}
+
+.contact form .inputBox textarea {
+  resize: none;
+  height: 15rem;
+}
+
+.contact form .inputBox label {
+  font-size: 1.7rem;
+  position: absolute;
+  top: 2.3rem;
+  left: 0;
+}
+
+.contact form .inputBox input:focus,
+.contact form .inputBox textarea:focus {
+  border-color: var(--red);
+}
+
+.contact form .inputBox input:focus ~ label,
+.contact form .inputBox textarea:focus ~ label,
+.contact form .inputBox input:valid ~ label,
+.contact form .inputBox textarea:valid ~ label {
+  top: -0.4rem;
+  font-size: 1.5rem;
+  color: var(--red);
+}
+
+/* contact section style ends */
+
+/* footer section style ends */
+.footer {
+  text-align: center;
+  background: var(--black);
+}
+
+.footer .share a {
+  height: 4.5rem;
+  width: 4.5rem;
+  line-height: 4.5rem;
+  background: #eee;
+  border-radius: 50%;
+  color: var(--black);
+  font-size: 2rem;
+  margin: 0.3rem;
+}
+
+.footer .share a:hover {
+  color: #fff;
+  background: var(--gradient);
+}
+
+.footer .credit {
+  color: #eee;
+  padding: 2.5rem 1rem;
+  font-weight: normal;
+  font-size: 2rem;
+}
+
+.footer .credit span {
+  color: var(--red);
+}
+/* footer section style ends */
+
+/* media queries */
+/* 根据页面宽度变化 修改样式 以适应设备 */
+/* 当宽度小于991px时 */
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+  header {
+    padding: 2rem 4%;
+  }
+
+  section {
+    padding: 3rem 4%;
+  }
+  .usage .row {
+    flex-flow: column;
+  }
+
+  .usage .row .divider {
+    display: none;
+  }
+
+  .usage .row .box-container .box {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  #menu-bar {
+    display: block;
+  }
+  header .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--black);
+    border-top: 0.1rem solid #fff3;
+    padding: 1rem 2rem;
+    /* 设置可显示区域 */
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  header .navbar.nav-toggle {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  header .navbar a {
+    /* 块级元素 一个元素占一行 */
+    display: block;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    /* 渐变函数要设置在 background属性上 */
+    background: var(--gradient);
+    /* 水平居中 */
+    text-align: center;
+    border-radius: 0.5rem;
+  }
+  header .navbar a:hover {
+    color: var(--black);
+  }
+  .fa-close {
+    transform: rotate(180deg);
+  }
+  .home .content p {
+    font-size: 1.5rem;
+  }
+  .home .content h3 {
+    font-size: 4rem;
+  }
+
+  .about .row .content {
+    text-align: center;
+  }
+  .about .row .content .buttons a {
+    width: 100%;
+  }
+  .about .row .content .buttons a:last-child {
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 400px) {
+  html {
+    font-size: 50%;
+  }
+  .heading {
+    font-size: 3.5rem;
+  }
+}
